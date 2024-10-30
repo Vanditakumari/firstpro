@@ -1,26 +1,27 @@
-package employee_details_treeset;
+package employee_details_treeSet;
 
 import java.util.TreeSet;
 
-public class Main {
-    public static void main(String[] args) {
-        EmployeeTree ram = new EmployeeTree("Ram", 20, 30000, "ABC123", "Kolkata");
-        EmployeeTree ram1 = new EmployeeTree("Ram", 20, 30000, "ABC123", "Kolkata");
-        EmployeeTree raj = new EmployeeTree("Raj", 25, 30000, "AXD123", "Kolkata");
-        EmployeeTree raj2 = new EmployeeTree("Raj", 25, 30000, "AXD123", "Kolkata");
+    public class Main {
+        public static void main(String[] args) {
+            Employee ram = new Employee("Ram", 20, 30000, "ABC123", "Kolkata");
+            Employee ram1 = new Employee("Ram", 20, 40000, "XYZ456", "Delhi"); // Same name and age
+            Employee raj = new Employee("Raj", 25, 30000, "AXD123", "Kolkata");
+            Employee raj2 = new Employee("Rahul", 28, 50000, "XYZ789", "Mumbai"); // Same name and age
 
-        // TreeSet that allows duplicates via the wrapper
-        TreeSet<EmployeeWrapper> setOfEmployees = new TreeSet<>();
+            // TreeSet that uses EmployeeTreeSet for comparison
+            TreeSet<EmployeeTreeSet> setOfEmployees = new TreeSet<>();
 
-        setOfEmployees.add(new EmployeeWrapper(ram));
-        setOfEmployees.add(new EmployeeWrapper(ram1));
-        setOfEmployees.add(new EmployeeWrapper(raj));
-        setOfEmployees.add(new EmployeeWrapper(raj2));
+            setOfEmployees.add(new EmployeeTreeSet(ram));
+            setOfEmployees.add(new EmployeeTreeSet(ram1)); // This will be rejected
+            setOfEmployees.add(new EmployeeTreeSet(raj));
+            setOfEmployees.add(new EmployeeTreeSet(raj2));
 
-
-        System.out.println("Contents of TreeSet:");
-        for (EmployeeWrapper wrapper : setOfEmployees) {
-            System.out.println(wrapper);
+            System.out.println("Contents of TreeSet:");
+            for (EmployeeTreeSet wrapper : setOfEmployees) {
+                System.out.println(wrapper);
+            }
         }
     }
-}
+
+
